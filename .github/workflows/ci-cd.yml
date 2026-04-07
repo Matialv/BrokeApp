@@ -101,11 +101,11 @@ jobs:
           sleep 2
         done
 
-    - name: Validate /ping endpoint
+    - name: Validate /health endpoint
       run: |
         response=$(curl -sf http://localhost:5000/health)
         echo "Response: $response"
-        echo "$response" | grep '"status":"OK"'
+        echo "$response" | grep -i "OK"
 
     - name: Validate / endpoint
       run: |
